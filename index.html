@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimal Mistakes Development Test Site</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid #ddd;
+      }
+      .menu {
+        display: flex;
+        gap: 15px;
+      }
+      .menu a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
+      .menu-icon {
+        display: none;
+        font-size: 24px;
+      }
+      .container {
+        display: flex;
+        max-width: 900px;
+        margin: 20px auto;
+        gap: 50px;
+      }
+      .sidebar {
+        position: sticky;
+        top: 0;
+        width: 25%;
+        text-align: left;
+        height: 80vh;
+      }
+      .sidebar img {
+        width: 80px;
+        border-radius: 50%;
+      }
+      .content {
+        width: 75%;
+      }
+      .post {
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+      }
+      .skills {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; /* Space between skills */
+      }
+
+      .skill {
+        display: inline-block;
+        background: white; /* White background */
+        color: black; /* Black text */
+        padding: 8px 15px;
+        border-radius: 20px; /* Curved border */
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid black; /* Reduced border thickness */
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+      }
+
+      .skill:hover {
+        box-shadow: 0px 0px 10px #00ffcc; /* Glowing effect */
+        transform: scale(1.05); /* Slightly enlarge on hover */
+      }
+
+      a {
+        text-decoration: none; /* Remove underline */
+        color: #0077cc; /* Slightly different shade from regular text */
+        transition: color 0.3s ease-in-out;
+      }
+
+      a:hover {
+        color: #005599; /* Darker shade on hover */
+        text-decoration: underline; /* Underline appears only on hover */
+      }
+
+      .footer {
+        background: #0077cc;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+      }
+      @media (max-width: 768px) {
+        .menu {
+          display: none;
+        }
+        .menu-icon {
+          display: block;
+        }
+        .container {
+          flex-direction: column;
+          text-align: center;
+        }
+        .sidebar,
+        .content {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div style="font-size: 1.5em">Pranesh S</div>
+      <div class="menu">
+        <a href="#about">About Me</a>
+        <a href="#">Projects</a>
+        <a
+          href="https://drive.google.com/file/d/1ij3RzZJHIszYc2M6_jXs-Ly_LkBhScqt/view?usp=sharing"
+          target="_blank"
+          >Resume</a
+        >
+      </div>
+      <div class="menu-icon">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="sidebar">
+        <img src="Untitled-1.jpg" alt="Profile" />
+        <p><strong style="font-size: 1.5em">Pranesh S</strong></p>
+        <p style="font-size: 0.9em; position: relative; top: -10px">
+          Salem, Tamil Nadu
+        </p>
+
+        <p>
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/Pranesh2288" target="_blank"
+            >github.com/Pranesh2288</a
+          >
+        </p>
+        <p>
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/pranesh2288/" target="_blank"
+            >In/Pranesh S</a
+          >
+        </p>
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:pranesh2288@gmail.com">pranesh2288@gmail.com</a>
+        </p>
+        <p>
+          <i class="fas fa-phone"></i>
+          <a href="tel:+91 9940835688">+91 9940835688</a>
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="post">
+          <h3 id="about">About Me</h3>
+          <p style="text-align: justify">
+            Final-year B.Tech CSE student at IIIT Sri City with a strong
+            foundation in DSA and Software Development. Passionate about
+            Software Testing, AI, and Web Development. Proficient in C++,
+            Python, and JavaScript, with QA and automation testing knowledge. A
+            quick learner and team player, eager to ensure software quality
+            through effective test strategies.
+          </p>
+        </div>
+        <h3 id="projects">Projects</h3>
+        <div class="post">
+          <a
+            href="https://github.com/Pranesh2288/Unauthorized-Entry-Alert-System"
+            ><strong>Intruder Alert System</strong></a
+          >
+          <ul>
+            <li>
+              Developed a real-time face recognition access alert system using
+              Python (<code>face-recognition</code> module), OpenCV, and
+              MongoDB.
+            </li>
+            <li>
+              Implemented alert notifications via Telegram, Discord, and email.
+            </li>
+            <li>
+              Recognizes users based on stored face embeddings and triggers an
+              alert if detected in a restricted area.
+            </li>
+            <li>
+              Utilized <code>pytest</code>, <code>mongo-mock</code>,
+              <code>timeit</code>, and <code>selenium</code> for testing and
+              performance evaluation.
+            </li>
+          </ul>
+          <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">OpenCV</span>
+            <span class="skill">MongoDB</span>
+            <span class="skill">PyTest</span>
+            <span class="skill">Selenium</span>
+          </div>
+        </div>
+        <div class="post">
+          <a href="https://github.com/Pranesh2288/BTP_PROJECT"
+            ><strong>Medical Image segmentation</strong></a
+          >
+          <ul>
+            <li>
+              <strong>Version 1:</strong> Used an Attention U-Net model with
+              separable convolutional layers of depth 4 to achieve a Dice
+              coefficient of 81.3.
+            </li>
+            <li>
+              <strong>Version 2:</strong> Used Min-Max Contrastive Learning
+              methodology to improve the Dice coefficient to 92.5 on the
+              Re-Touch Dataset.
+            </li>
+          </ul>
+          <div class="skills">
+            <span class="skill">Contrastive Learning</span>
+            <span class="skill">Attention U-net</span>
+            <span class="skill">Pytorch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2025 Pranesh. Made with &#10084;&#65039;</p>
+    </div>
+  </body>
+</html>
