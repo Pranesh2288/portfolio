@@ -42,13 +42,13 @@
       }
       .sidebar {
         position: sticky;
-        top: 0;
+        top: 30px;
         width: 25%;
         text-align: left;
         height: 80vh;
       }
       .sidebar img {
-        width: 80px;
+        width: 200px;
         border-radius: 50%;
       }
       .content {
@@ -125,9 +125,9 @@
       <div style="font-size: 1.5em">Pranesh S</div>
       <div class="menu">
         <a href="#about">About Me</a>
-        <a href="#">Projects</a>
+        <a href="#projects">Projects</a>
         <a
-          href="https://drive.google.com/file/d/1ij3RzZJHIszYc2M6_jXs-Ly_LkBhScqt/view?usp=sharing"
+          href="https://drive.google.com/file/d/1fFp9jPeVXjVlc0xtSTKyRMyAqLK0hQRI/view?usp=sharing"
           target="_blank"
           >Resume</a
         >
@@ -139,11 +139,13 @@
 
     <div class="container">
       <div class="sidebar">
-        <img src="Untitled-1.jpg" alt="Profile" />
-        <p><strong style="font-size: 1.5em">Pranesh S</strong></p>
-        <p style="font-size: 0.9em; position: relative; top: -10px">
-          Salem, Tamil Nadu
-        </p>
+        <img src="Untitled-1.jpeg" alt="Profile" />
+        <div style="text-align: center">
+          <p><strong style="font-size: 1.5em">Pranesh S</strong></p>
+          <p style="font-size: 0.9em; position: relative; top: -10px">
+            Salem, Tamil Nadu
+          </p>
+        </div>
 
         <p>
           <i class="fab fa-github"></i>
@@ -172,17 +174,87 @@
           <h3 id="about">About Me</h3>
           <p style="text-align: justify">
             Final-year B.Tech CSE student at IIIT Sri City with a strong
-            foundation in DSA and Software Development. Passionate about
-            Software Testing, AI, and Web Development. Proficient in C++,
-            Python, and JavaScript, with QA and automation testing knowledge. A
-            quick learner and team player, eager to ensure software quality
-            through effective test strategies.
+            foundation in Data Analytics and Software Development. Passionate
+            about use of data for solving real world problems. Proficient in C++
+            and Python.
           </p>
         </div>
         <h3 id="projects">Projects</h3>
         <div class="post">
+          <a href="https://github.com/Pranesh2288/BTP_PROJECT" target="_blank"
+            ><strong>Medical Image segmentation</strong></a
+          >
+          <ul>
+            <li>
+              Processed and converted 6000+ 3D .raw retinal OCT scans from the
+              Re-Touch dataset into 2D .tif images, streamlining data
+              preprocessing across multiple scanning systems (Cirrus,
+              Spectralis, Topcon).
+            </li>
+            <li>
+              <Performed ANOVA tests on cyst characteristics, identifying
+              significant variations p < 0.0001 in intensity, contrast, and
+              entropy among types, validating their use in segmentation.
+            </li>
+            <li>
+              Engineered an Attention U-Net with separable convolutional layers
+              and a dual-loss function (Dice + BCE), achieving an 81.3 Dice
+              coefficient in cyst segmentation—marking a significant improvement
+              in segmentation accuracy for retinal OCT images.
+            </li>
+            <li>
+              Enhanced the Dice coefficient to 92.5 by implementing a Min-Max
+              Contrastive Semi-Supervised Learning framework with projectors and
+              classifiers, significantly reducing reliance on labeled data and
+              improving segmentation accuracy in cyst detection.
+            </li>
+          </ul>
+          <div class="skills">
+            <span class="skill">Contrastive Learning</span>
+            <span class="skill">Attention U-net</span>
+            <span class="skill">Pytorch</span>
+          </div>
+        </div>
+        <div class="post">
+          <a
+            href="https://github.com/Pranesh2288/Road-Safety-Analysis"
+            target="_blank"
+            ><strong>UNICEF Road Safety Data Analysis</strong></a
+          >
+          <ul>
+            <li>
+              Performed exploratory data analysis (EDA) on a 32-feature UK road
+              safety dataset to identify patterns in accident severity, temporal
+              trends, and geospatial distribution.
+            </li>
+            <li>
+              Executed robust data pre-processing including missing value
+              imputation, type correction, and timestamp parsing to ensure data
+              quality and consistency.
+            </li>
+            <li>
+              Engineered new features and applied Z-score based outlier
+              detection to enhance analytical accuracy and reveal hidden
+              insights.
+            </li>
+            <li>
+              Conducted statistical hypothesis testing (t-tests) and correlation
+              analysis to validate assumptions and inform data-driven decisions
+              for road safety improvements.
+            </li>
+          </ul>
+          <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">Pandas</span>
+            <span class="skill">Matplotlib</span>
+            <span class="skill">GeoPandas</span>
+            <span class="skill">Scikit-learn</span>
+          </div>
+        </div>
+        <div class="post">
           <a
             href="https://github.com/Pranesh2288/Unauthorized-Entry-Alert-System"
+            target="_blank"
             ><strong>Intruder Alert System</strong></a
           >
           <ul>
@@ -213,32 +285,40 @@
           </div>
         </div>
         <div class="post">
-          <a href="https://github.com/Pranesh2288/BTP_PROJECT"
-            ><strong>Medical Image segmentation</strong></a
+          <a
+            href="https://github.com/Pranesh2288/Mushroom-Classification"
+            target="_blank"
+            ><strong>Mushroom Classification using Decision Tree</strong></a
           >
           <ul>
             <li>
-              <strong>Version 1:</strong> Used an Attention U-Net model with
-              separable convolutional layers of depth 4 to achieve a Dice
-              coefficient of 81.3.
+              Developed a decision tree model using the C4.5 algorithm to
+              classify mushrooms as edible or poisonous based on 23
+              morphological features, achieving 52.25% accuracy and 68.63%
+              F1-score.
             </li>
             <li>
-              <strong>Version 2:</strong> Used Min-Max Contrastive Learning
-              methodology to improve the Dice coefficient to 92.5 on the
-              Re-Touch Dataset.
+              Performed data preprocessing, including correlation analysis and
+              feature selection, removing low-cardinality features like bruises
+              and veil-type to optimize model performance.
+            </li>
+            <li>
+              Utilized k-fold cross-validation to ensure robust model evaluation
+              and identified areas for improvement, such as data pruning and
+              alternative algorithms like CART.
             </li>
           </ul>
           <div class="skills">
-            <span class="skill">Contrastive Learning</span>
-            <span class="skill">Attention U-net</span>
-            <span class="skill">Pytorch</span>
+            <span class="skill">C4.5</span>
+            <span class="skill">Decision Tree</span>
+            <span class="skill">Correlation Analysis</span>
           </div>
         </div>
       </div>
     </div>
 
     <div class="footer">
-      <p>&copy; 2025 Pranesh. Made with &#10084;&#65039;</p>
+      <p>&copy; 2025, Made with &#10084;&#65039; by Pranesh</p>
     </div>
   </body>
 </html>
