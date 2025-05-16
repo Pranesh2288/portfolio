@@ -89,12 +89,34 @@ window.addEventListener("keydown", function (e) {
       .forEach(function (modal) {
         modal.style.display = "none";
       });
+    // Clear the search bar and show all projects
+    var searchInput = document.getElementById("projects-search");
+    if (searchInput && searchInput.value) {
+      searchInput.value = "";
+      renderProjects(projects);
+      searchInput.blur();
+    }
+  }
+});
+
+document.addEventListener("keydown", function (e) {
+  // If typing a visible character and not in an input/textarea, focus the search box
+  const isInput = document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA');
+  const searchInput = document.getElementById("projects-search");
+  if (
+    searchInput &&
+    !isInput &&
+    e.key.length === 1 &&
+    !e.ctrlKey && !e.metaKey && !e.altKey
+  ) {
+    searchInput.focus();
   }
 });
 
 function projectCard({
   id,
   title,
+  summary,
   desc,
   details,
   github,
@@ -105,9 +127,10 @@ function projectCard({
   return `
     <div class="project-card">
       <h3>${title}</h3>
-      <p class="project-desc">${desc}</p>
+      <p class="project-desc">${summary || desc}</p>
       <div class="project-tools-row">
-        ${tools
+        ${(tools || [])
+          .slice(0, 3)
           .map((tool) => `<span class="project-tool-badge">${tool}</span>`)
           .join(" ")}
       </div>
@@ -125,10 +148,15 @@ function projectCard({
         <button class="close-modal" onclick=\"closeProjectModal('${id}')\">&times;</button>
         <h2>${title}</h2>
         <div class="modal-underline"></div>
-        <div class="modal-desc">${desc}</div>
+        <div class="modal-desc">${summary || desc}</div>
         <ul>
           ${details.map((item) => `<li>${item}</li>`).join("")}
         </ul>
+        <div class="modal-tools-row">
+          ${(tools || [])
+            .map((tool) => `<span class='project-tool-badge'>${tool}</span>`)
+            .join(" ")}
+        </div>
         <div class="modal-links">
           <a href="${github}" target="_blank" class="modal-link-btn github" title="GitHub Repository"><i class="fab fa-github"></i>View Repository</a>
           <a href="${youtube}" target="_blank" class="modal-link-btn youtube" title="YouTube Demo"><i class="fab fa-youtube"></i>YouTube</a>
@@ -143,6 +171,7 @@ const projects = [
   {
     id: "proj1-details",
     title: "Medical Image Segmentation",
+    summary: "Retinal OCT segmentation using deep learning.",
     desc: "Deep learning-based segmentation of retinal OCT images using Attention U-Net and contrastive learning.",
     details: [
       "Processed and converted 6000+ 3D .raw retinal OCT scans from the Re-Touch dataset into 2D .tif images.",
@@ -158,6 +187,7 @@ const projects = [
   {
     id: "proj2-details",
     title: "UNICEF Road Safety Data Analysis",
+    summary: "UK road safety data analysis and ML insights.",
     desc: "Statistical and ML analysis of UK road safety data to identify accident patterns and inform safety improvements.",
     details: [
       "Performed EDA on a 32-feature UK road safety dataset.",
@@ -173,6 +203,7 @@ const projects = [
   {
     id: "proj3-details",
     title: "Intruder Alert System",
+    summary: "Real-time face recognition access alert system.",
     desc: "Real-time face recognition access alert system with notifications and performance evaluation.",
     details: [
       "Developed a real-time face recognition access alert system using Python, OpenCV, and MongoDB.",
@@ -188,6 +219,7 @@ const projects = [
   {
     id: "proj4-details",
     title: "Mushroom Classification using Decision Tree",
+    summary: "Classify mushrooms as edible or poisonous.",
     desc: "Decision tree model to classify mushrooms as edible or poisonous based on morphological features.",
     details: [
       "Developed a decision tree model using the C4.5 algorithm to classify mushrooms as edible or poisonous.",
@@ -200,8 +232,40 @@ const projects = [
     tools: ["Python", "Scikit-learn", "Pandas"],
   },
 ];
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("projects-list").innerHTML = projects
+
+function renderProjects(filteredProjects) {
+  document.getElementById("projects-list").innerHTML = filteredProjects
     .map(projectCard)
     .join("");
+}
+
+function filterProjects() {
+  const query = document
+    .getElementById("projects-search")
+    .value.trim()
+    .toLowerCase();
+  if (!query) {
+    renderProjects(projects);
+    return;
+  }
+  const filtered = projects.filter((p) => {
+    const titleMatch = p.title.toLowerCase().includes(query);
+    const techMatch = (p.tools || []).some((tool) =>
+      tool.toLowerCase().includes(query)
+    );
+    return titleMatch || techMatch;
+  });
+  renderProjects(filtered);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  renderProjects(projects);
+  const searchInput = document.getElementById("projects-search");
+  const resetBtn = document.getElementById("projects-search-reset");
+  searchInput.addEventListener("input", filterProjects);
+  resetBtn.addEventListener("click", function () {
+    searchInput.value = "";
+    renderProjects(projects);
+    searchInput.focus();
+  });
 });

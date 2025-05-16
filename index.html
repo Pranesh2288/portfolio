@@ -41,7 +41,7 @@
           "
         >
           <img
-            src="Untitled-1.jpg"
+            src="Untitled-1.jpeg"
             alt="Profile"
             style="width: 200px; border-radius: 50%; margin-bottom: 18px"
           />
@@ -164,6 +164,17 @@
       <div class="block-projects" id="projects-section">
         <h2 id="projects" class="section-heading">Featured Projects</h2>
         <div class="section-underline"></div>
+        <div class="projects-search-row">
+          <input
+            type="text"
+            id="projects-search"
+            placeholder="Search by title or technology..."
+            autocomplete="off"
+          />
+          <button id="projects-search-reset" title="Clear search">
+            &#10006;
+          </button>
+        </div>
         <div class="projects-grid" id="projects-list"></div>
         <div id="modal-overlay" style="display: none"></div>
       </div>
