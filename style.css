@@ -137,7 +137,7 @@ a:hover {
   text-align: center;
 }
 .project-desc {
-  color: #414141;
+  color: #313131;
   font-size: 1em;
   margin-bottom: 16px;
   text-align: left;
@@ -262,23 +262,27 @@ a:hover {
 }
 .project-details-modal h2 {
   text-align: center;
+  color: #0077cc;
 }
 .project-details-modal .modal-underline {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  color: #313131;
 }
 .project-details-modal ul {
   text-align: left;
   margin-left: 0;
   padding-left: 24px;
   list-style-position: outside;
+  color: #313131;
 }
 .project-details-modal ul li {
   text-align: left;
   margin-bottom: 7px;
   line-height: 1.6;
   padding-left: 0;
+  color: #313131;
 }
 #modal-overlay {
   display: none;
@@ -357,4 +361,21 @@ a:hover {
 }
 .modal-link-btn i {
   transition: color 0.2s;
+}
+.project-tools-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 18px 0;
+}
+.project-tool-badge {
+  background: #e3f2fd;
+  color: #1976d2;
+  font-size: 0.95em;
+  font-weight: 500;
+  border-radius: 16px;
+  padding: 4px 14px;
+  display: inline-block;
+  letter-spacing: 0.02em;
+  box-shadow: 0 1px 4px rgba(25, 118, 210, 0.07);
 }

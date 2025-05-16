@@ -92,11 +92,25 @@ window.addEventListener("keydown", function (e) {
   }
 });
 
-function projectCard({ id, title, desc, details, github, youtube, medium }) {
+function projectCard({
+  id,
+  title,
+  desc,
+  details,
+  github,
+  youtube,
+  medium,
+  tools,
+}) {
   return `
     <div class="project-card">
       <h3>${title}</h3>
       <p class="project-desc">${desc}</p>
+      <div class="project-tools-row">
+        ${tools
+          .map((tool) => `<span class="project-tool-badge">${tool}</span>`)
+          .join(" ")}
+      </div>
       <div class="project-card-actions-row">
         <button class="view-details-btn" onclick=\"showProjectModal('${id}')\">
           View Details <i class='fas fa-arrow-right'></i>
@@ -139,6 +153,7 @@ const projects = [
     youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID1",
     medium:
       "https://medium.com/@pranesh2288/medical-image-segmentation-article",
+    tools: ["Python", "TensorFlow", "Keras", "OpenCV", "NumPy"],
   },
   {
     id: "proj2-details",
@@ -153,6 +168,7 @@ const projects = [
     youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID2",
     medium:
       "https://medium.com/@pranesh2288/unicef-road-safety-data-analysis-article",
+    tools: ["Python", "Pandas", "Matplotlib", "Scikit-learn"],
   },
   {
     id: "proj3-details",
@@ -167,6 +183,7 @@ const projects = [
     github: "https://github.com/Pranesh2288/Unauthorized-Entry-Alert-System",
     youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID3",
     medium: "https://medium.com/@pranesh2288/intruder-alert-system-article",
+    tools: ["Python", "OpenCV", "MongoDB", "Telegram API", "Discord API"],
   },
   {
     id: "proj4-details",
@@ -180,6 +197,7 @@ const projects = [
     github: "https://github.com/Pranesh2288/Mushroom-Classification",
     youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID4",
     medium: "https://medium.com/@pranesh2288/mushroom-classification-article",
+    tools: ["Python", "Scikit-learn", "Pandas"],
   },
 ];
 document.addEventListener("DOMContentLoaded", function () {
