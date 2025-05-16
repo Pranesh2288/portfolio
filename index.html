@@ -9,126 +9,438 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
     <style>
+      /* ====== General Styles ====== */
+      html {
+        scroll-behavior: smooth;
+      }
+      @font-face {
+        font-family: "Hanuman";
+        src: url("Hanuman-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
       body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
       }
+      a {
+        text-decoration: none;
+        color: #0077cc;
+        transition: color 0.3s;
+      }
+      a:hover {
+        color: #005599;
+        text-decoration: underline;
+      }
+      /* ====== Header & Navigation ====== */
       .header {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         padding: 15px 20px;
         border-bottom: 1px solid #ddd;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       }
       .menu {
         display: flex;
         gap: 15px;
       }
       .menu a {
-        text-decoration: none;
-        color: black;
+        font-family: "Hanuman";
         font-weight: bold;
       }
       .menu-icon {
         display: none;
         font-size: 24px;
       }
-      .container {
-        display: flex;
-        max-width: 900px;
-        margin: 20px auto;
-        gap: 50px;
-      }
-      .sidebar {
-        position: sticky;
-        top: 30px;
-        width: 25%;
-        text-align: left;
-        height: 80vh;
-      }
-      .sidebar img {
-        width: 200px;
-        border-radius: 50%;
-      }
-      .content {
-        width: 75%;
-      }
-      .post {
-        padding: 10px 0;
-        border-bottom: 1px solid #ddd;
-      }
-      .skills {
-        margin-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px; /* Space between skills */
-      }
-
-      .skill {
-        display: inline-block;
-        background: white; /* White background */
-        color: black; /* Black text */
-        padding: 8px 15px;
-        border-radius: 20px; /* Curved border */
-        font-size: 14px;
-        font-weight: bold;
-        text-align: center;
-        border: 1px solid black; /* Reduced border thickness */
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-      }
-
-      .skill:hover {
-        box-shadow: 0px 0px 10px #00ffcc; /* Glowing effect */
-        transform: scale(1.05); /* Slightly enlarge on hover */
-      }
-
-      a {
-        text-decoration: none; /* Remove underline */
-        color: #0077cc; /* Slightly different shade from regular text */
-        transition: color 0.3s ease-in-out;
-      }
-
-      a:hover {
-        color: #005599; /* Darker shade on hover */
-        text-decoration: underline; /* Underline appears only on hover */
-      }
-
+      /* ====== Footer ====== */
       .footer {
         background: #0077cc;
         color: white;
         text-align: center;
-        padding: 10px;
+        padding: 5px;
         margin-top: 20px;
+        position: static;
+        width: 100%;
       }
-      @media (max-width: 768px) {
-        .menu {
-          display: none;
+      /* ====== Block Layouts ====== */
+      .block-profile-contact,
+      .block-about,
+      .block-projects {
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      /* ====== Profile & About Styles ====== */
+      .profile-contact img {
+        width: 160px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      .profile-contact p {
+        margin: 6px 0;
+        font-size: 1em;
+      }
+      .about-content {
+        flex: 2 1 400px;
+        min-width: 320px;
+        background: none;
+        border-radius: 0;
+        box-shadow: none;
+        text-align: left;
+      }
+      /* ====== Projects Grid & Card Styles ====== */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(320px, 1fr));
+        gap: 36px 32px;
+        justify-items: stretch;
+        align-items: stretch;
+        margin-top: 24px;
+        width: 100%;
+        max-width: 1600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .project-card {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+        padding: 32px 24px 24px 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        max-width: 400px;
+        min-width: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .project-card h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1.2em;
+        color: #0077cc;
+        font-weight: bold;
+      }
+      .project-desc {
+        color: #222;
+        font-size: 1em;
+        margin-bottom: 16px;
+        text-align: center;
+      }
+      .project-card-actions-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 18px;
+        gap: 12px;
+      }
+      .view-details-btn {
+        background: #0077cc;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 28px;
+        font-size: 1.08em;
+        font-family: inherit;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        margin-left: 8px;
+      }
+      .view-details-btn i {
+        font-size: 1em;
+        margin-left: 4px;
+      }
+      .view-details-btn:hover {
+        background: #005599;
+        color: #fff;
+      }
+      .project-links-btns {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-right: 8px;
+      }
+      .icon-btn {
+        background: #f5f7fa;
+        color: #0077cc;
+        border: none;
+        border-radius: 8px;
+        padding: 6px 10px; /* slightly smaller padding for a more compact look */
+        font-size: 1.5em; /* reduced from 2em/1.25em to 1.5em for all icons */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, color 0.2s;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        text-decoration: none !important;
+      }
+      .contact-icons-row .icon-btn {
+        font-size: 1.5em !important;
+        padding: 6px 10px !important;
+      }
+      .icon-btn:hover {
+        text-decoration: none !important;
+      }
+      .icon-btn.github:hover {
+        background: #000;
+        color: #fff;
+      }
+      .icon-btn.medium:hover {
+        background: #000 !important;
+        color: #fff !important;
+      }
+      .icon-btn.youtube:hover {
+        background: #fff !important;
+        color: #ff0000 !important;
+      }
+      .icon-btn.youtube:hover i {
+        color: #ff0000 !important;
+      }
+      .icon-btn.github:hover i,
+      .icon-btn.medium:hover i {
+        color: #fff !important;
+      }
+      .icon-btn i {
+        transition: color 0.2s;
+      }
+      #typewriter-text {
+        min-width: 16ch; /* Reserve space for the longest word */
+        display: inline-block;
+        text-align: center;
+      }
+      @media (max-width: 1400px) {
+        .block-profile-contact,
+        .block-about,
+        .block-projects,
+        .projects-grid {
+          max-width: 98vw;
         }
-        .menu-icon {
-          display: block;
+      }
+      @media (max-width: 1200px) {
+        .projects-grid {
+          grid-template-columns: repeat(2, minmax(320px, 1fr));
         }
-        .container {
+      }
+      @media (max-width: 1100px) {
+        .block-profile-contact,
+        .block-about,
+        .block-projects {
+          max-width: 100vw;
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+      }
+      @media (max-width: 900px) {
+        .block-profile-contact,
+        .block-about {
           flex-direction: column;
-          text-align: center;
+          gap: 24px;
         }
-        .sidebar,
-        .content {
+        .profile-contact,
+        .about-content {
           width: 100%;
+          max-width: 100%;
         }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .block-profile-contact,
+        .block-about,
+        .block-projects {
+          padding-left: 4px;
+          padding-right: 4px;
+        }
+      }
+      /* ====== Modal Styles ====== */
+      .project-details-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 18px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+        z-index: 1001;
+        padding: 36px 32px 28px 32px;
+        min-width: 320px;
+        max-width: 95vw;
+        max-height: 90vh;
+        overflow-y: auto;
+        display: none;
+      }
+      .project-details-modal h2 {
+        text-align: center;
+      }
+      .project-details-modal .modal-underline {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+      .project-details-modal ul {
+        text-align: left;
+        margin-left: 0;
+        padding-left: 24px;
+        list-style-position: outside;
+      }
+      .project-details-modal ul li {
+        text-align: left;
+        margin-bottom: 7px;
+        line-height: 1.6;
+        padding-left: 0;
+      }
+      #modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(30, 34, 44, 0.1);
+        backdrop-filter: blur(6px);
+        z-index: 1000;
+      }
+      .close-modal {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        background: #0077cc;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        font-size: 1.5em;
+        cursor: pointer;
+        z-index: 1002;
+        transition: background 0.2s;
+      }
+      .close-modal:hover {
+        background: #005599;
+      }
+      .modal-underline {
+        width: 60px;
+        height: 4px;
+        background: #0077cc;
+        border-radius: 2px;
+        margin: 12px auto 18px auto; /* Center horizontally */
+        display: block;
+      }
+      .modal-links {
+        display: flex;
+        gap: 16px;
+        margin-top: 18px;
+        justify-content: center;
+      }
+      .modal-link-btn {
+        background: #f5f7fa;
+        color: #0077cc;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 1em;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.2s, color 0.2s;
+      }
+      .modal-link-btn:hover {
+        text-decoration: none;
+      }
+      .modal-link-btn.github:hover,
+      .modal-link-btn.medium:hover {
+        background: #000;
+        color: #fff;
+      }
+      .modal-link-btn.github:hover i,
+      .modal-link-btn.medium:hover i {
+        color: #fff;
+      }
+      .modal-link-btn.youtube:hover {
+        background: #fff;
+        color: #000;
+      }
+      .modal-link-btn.youtube:hover i {
+        color: #ff0000;
+      }
+      .modal-link-btn i {
+        transition: color 0.2s;
+      }
+      /* ====== Responsive Styles ====== */
+      @media (max-width: 1300px) {
+        .block-projects,
+        .projects-grid {
+          max-width: 100vw;
+        }
+      }
+      @media (max-width: 1100px) {
+        .block-profile-contact,
+        .block-about,
+        .block-projects {
+          max-width: 100vw;
+        }
+      }
+      @media (max-width: 900px) {
+        .block-profile-contact,
+        .block-about {
+          flex-direction: column;
+          gap: 24px;
+        }
+        .profile-contact,
+        .about-content {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 600px) {
+        .block-profile-contact,
+        .block-about,
+        .block-projects {
+          padding: 0 4px;
+        }
+      }
+      .section-heading {
+        text-align: center;
+        font-size: 1.7em;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 8px;
+      }
+      .section-underline {
+        width: 60px;
+        height: 4px;
+        background: #1976d2;
+        border-radius: 2px;
+        margin: 0 auto 18px auto;
       }
     </style>
   </head>
   <body>
     <div class="header">
-      <div style="font-size: 1.5em">Pranesh S</div>
+      <div style="font-size: 1.5em; font-family: 'Hanuman'">Pranesh S</div>
       <div class="menu">
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
+        <a href="#about-section" style="font-family: 'Hanuman'">About Me</a>
+        <a href="#projects-section" style="font-family: 'Hanuman'">Projects</a>
         <a
           href="https://drive.google.com/file/d/1fFp9jPeVXjVlc0xtSTKyRMyAqLK0hQRI/view?usp=sharing"
           target="_blank"
+          style="font-family: 'Hanuman'"
           >Resume</a
         >
       </div>
@@ -137,188 +449,390 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="sidebar">
-        <img src="Untitled-1.jpg" alt="Profile" />
-        <div style="text-align: center">
-          <p><strong style="font-size: 1.5em">Pranesh S</strong></p>
-          <p style="font-size: 0.9em; position: relative; top: -10px">
+    <!-- Block 1: Profile/Contact only -->
+    <div
+      class="block-profile-contact"
+      style="
+        max-width: 1300px;
+        margin: 36px auto 0 auto;
+        display: flex;
+        justify-content: center;
+      "
+    >
+      <div
+        class="profile-contact"
+        style="
+          display: flex;
+          flex-direction: row;
+          align-items: stretch;
+          width: 100%;
+          max-width: 1000px;
+          background: #fff;
+          border-radius: 18px;
+          box-shadow: none;
+          padding: 0;
+        "
+      >
+        <!-- Column 1: Image, Name, Location -->
+        <div
+          style="
+            flex: 1 1 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px 32px 24px;
+            min-width: 200px;
+            max-width: 260px;
+            border-right: none;
+          "
+        >
+          <img
+            src="Untitled-1.jpg"
+            alt="Profile"
+            style="width: 120px; border-radius: 50%; margin-bottom: 18px"
+          />
+          <p><strong style="font-size: 1.3em">Pranesh S</strong></p>
+          <p style="font-size: 1em; color: #666; margin-top: 2px">
             Salem, Tamil Nadu
           </p>
         </div>
-
-        <p>
-          <i class="fab fa-github"></i>
-          <a href="https://github.com/Pranesh2288" target="_blank"
-            >github.com/Pranesh2288</a
+        <!-- Column 2: Large Text and Icons -->
+        <div
+          style="
+            flex: 2 1 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px 32px 24px;
+            min-width: 220px;
+          "
+        >
+          <div
+            style="
+              font-size: 2.1em;
+              font-weight: bold;
+              color: #1976d2;
+              text-align: center;
+              margin-bottom: 24px;
+            "
           >
-        </p>
-        <p>
-          <i class="fab fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/pranesh2288/" target="_blank"
-            >In/Pranesh S</a
-          >
-        </p>
-        <p>
-          <i class="fas fa-envelope"></i>
-          <a href="mailto:pranesh2288@gmail.com">pranesh2288@gmail.com</a>
-        </p>
-        <p>
-          <i class="fas fa-phone"></i>
-          <a href="tel:+91 9940835688">+91 9940835688</a>
-        </p>
-      </div>
-
-      <div class="content">
-        <div class="post">
-          <h3 id="about">About Me</h3>
-          <p style="text-align: justify">
-            Final-year B.Tech CSE student at IIIT Sri City with a strong
-            foundation in Data Analytics and Software Development. Passionate
-            about use of data for solving real world problems. Proficient in C++
-            and Python.
-          </p>
-        </div>
-        <h3 id="projects">Projects</h3>
-        <div class="post">
-          <a href="https://github.com/Pranesh2288/BTP_PROJECT" target="_blank"
-            ><strong>Medical Image segmentation</strong></a
-          >
-          <ul>
-            <li>
-              Processed and converted 6000+ 3D .raw retinal OCT scans from the
-              Re-Touch dataset into 2D .tif images, streamlining data
-              preprocessing across multiple scanning systems (Cirrus,
-              Spectralis, Topcon).
-            </li>
-            <li>
-              <Performed ANOVA tests on cyst characteristics, identifying
-              significant variations p < 0.0001 in intensity, contrast, and
-              entropy among types, validating their use in segmentation.
-            </li>
-            <li>
-              Engineered an Attention U-Net with separable convolutional layers
-              and a dual-loss function (Dice + BCE), achieving an 81.3 Dice
-              coefficient in cyst segmentation—marking a significant improvement
-              in segmentation accuracy for retinal OCT images.
-            </li>
-            <li>
-              Enhanced the Dice coefficient to 92.5 by implementing a Min-Max
-              Contrastive Semi-Supervised Learning framework with projectors and
-              classifiers, significantly reducing reliance on labeled data and
-              improving segmentation accuracy in cyst detection.
-            </li>
-          </ul>
-          <div class="skills">
-            <span class="skill">Contrastive Learning</span>
-            <span class="skill">Attention U-net</span>
-            <span class="skill">Pytorch</span>
+            I am interested in <br /><span id="typewriter-text"></span>
           </div>
-        </div>
-        <div class="post">
-          <a
-            href="https://github.com/Pranesh2288/Road-Safety-Analysis"
-            target="_blank"
-            ><strong>UNICEF Road Safety Data Analysis</strong></a
+          <div
+            class="contact-icons-row"
+            style="
+              display: flex;
+              gap: 32px;
+              justify-content: center;
+              align-items: center;
+            "
           >
-          <ul>
-            <li>
-              Performed exploratory data analysis (EDA) on a 32-feature UK road
-              safety dataset to identify patterns in accident severity, temporal
-              trends, and geospatial distribution.
-            </li>
-            <li>
-              Executed robust data pre-processing including missing value
-              imputation, type correction, and timestamp parsing to ensure data
-              quality and consistency.
-            </li>
-            <li>
-              Engineered new features and applied Z-score based outlier
-              detection to enhance analytical accuracy and reveal hidden
-              insights.
-            </li>
-            <li>
-              Conducted statistical hypothesis testing (t-tests) and correlation
-              analysis to validate assumptions and inform data-driven decisions
-              for road safety improvements.
-            </li>
-          </ul>
-          <div class="skills">
-            <span class="skill">Python</span>
-            <span class="skill">Pandas</span>
-            <span class="skill">Matplotlib</span>
-            <span class="skill">GeoPandas</span>
-            <span class="skill">Scikit-learn</span>
-          </div>
-        </div>
-        <div class="post">
-          <a
-            href="https://github.com/Pranesh2288/Unauthorized-Entry-Alert-System"
-            target="_blank"
-            ><strong>Intruder Alert System</strong></a
-          >
-          <ul>
-            <li>
-              Developed a real-time face recognition access alert system using
-              Python (<code>face-recognition</code> module), OpenCV, and
-              MongoDB.
-            </li>
-            <li>
-              Implemented alert notifications via Telegram, Discord, and email.
-            </li>
-            <li>
-              Recognizes users based on stored face embeddings and triggers an
-              alert if detected in a restricted area.
-            </li>
-            <li>
-              Utilized <code>pytest</code>, <code>mongo-mock</code>,
-              <code>timeit</code>, and <code>selenium</code> for testing and
-              performance evaluation.
-            </li>
-          </ul>
-          <div class="skills">
-            <span class="skill">Python</span>
-            <span class="skill">OpenCV</span>
-            <span class="skill">MongoDB</span>
-            <span class="skill">PyTest</span>
-            <span class="skill">Selenium</span>
-          </div>
-        </div>
-        <div class="post">
-          <a
-            href="https://github.com/Pranesh2288/Mushroom-Classification"
-            target="_blank"
-            ><strong>Mushroom Classification using Decision Tree</strong></a
-          >
-          <ul>
-            <li>
-              Developed a decision tree model using the C4.5 algorithm to
-              classify mushrooms as edible or poisonous based on 23
-              morphological features, achieving 52.25% accuracy and 68.63%
-              F1-score.
-            </li>
-            <li>
-              Performed data preprocessing, including correlation analysis and
-              feature selection, removing low-cardinality features like bruises
-              and veil-type to optimize model performance.
-            </li>
-            <li>
-              Utilized k-fold cross-validation to ensure robust model evaluation
-              and identified areas for improvement, such as data pruning and
-              alternative algorithms like CART.
-            </li>
-          </ul>
-          <div class="skills">
-            <span class="skill">C4.5</span>
-            <span class="skill">Decision Tree</span>
-            <span class="skill">Correlation Analysis</span>
+            <a
+              href="https://github.com/Pranesh2288"
+              target="_blank"
+              class="icon-btn github"
+              title="GitHub"
+              style="font-size: 1.5em"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/pranesh2288/"
+              target="_blank"
+              class="icon-btn linkedin"
+              title="LinkedIn"
+              style="font-size: 1.5em"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/@pranesh2288"
+              target="_blank"
+              class="icon-btn youtube"
+              title="YouTube"
+              style="font-size: 1.5em"
+              ><i class="fab fa-youtube"></i
+            ></a>
+            <a
+              href="https://medium.com/@pranesh2288"
+              target="_blank"
+              class="icon-btn medium"
+              title="Medium"
+              style="font-size: 1.5em"
+              ><i class="fab fa-medium"></i
+            ></a>
+            <button
+              id="phone-btn"
+              onclick="copyToClipboard('+91 9940835688', 'phone-btn')"
+              class="icon-btn phone"
+              title="Copy Phone"
+              style="font-size: 1.5em"
+            >
+              <i class="fas fa-phone"></i>
+            </button>
+            <button
+              id="email-btn"
+              onclick="copyToClipboard('pranesh2288@gmail.com', 'email-btn')"
+              class="icon-btn email"
+              title="Copy Email"
+              style="font-size: 1.5em"
+            >
+              <i class="fas fa-envelope"></i>
+            </button>
           </div>
         </div>
       </div>
+    </div>
+    <script>
+      function copyToClipboard(text, btnId) {
+        navigator.clipboard.writeText(text).then(function () {
+          var btn = document.getElementById(btnId);
+          if (btn) {
+            var original = btn.innerHTML;
+            btn.innerHTML =
+              '<i class="fas fa-check" style="color:#2196f3"></i>';
+            setTimeout(function () {
+              btn.innerHTML = original;
+            }, 1200);
+          }
+        });
+      }
+
+      const typewriterWords = ["Web Development", "Data Science"];
+      const googleColors = [
+        "#EA4335", // red
+        "#FBBC05", // yellow
+        "#34A853", // green
+        "#5F33CF", // purple
+      ];
+      let typewriterIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typewriterDelay = 90;
+      let typewriterPause = 1200;
+      let colorIndex = 0;
+
+      function typewriterTick() {
+        const el = document.getElementById("typewriter-text");
+        if (!el) return;
+        const currentWord = typewriterWords[typewriterIndex];
+        // Set color for the current word
+        el.style.color = googleColors[colorIndex];
+        if (isDeleting) {
+          el.textContent = currentWord.substring(0, charIndex - 1);
+          charIndex--;
+          if (charIndex === 0) {
+            isDeleting = false;
+            typewriterIndex = (typewriterIndex + 1) % typewriterWords.length;
+            colorIndex = (colorIndex + 1) % googleColors.length;
+            setTimeout(typewriterTick, 400);
+            return;
+          }
+          setTimeout(typewriterTick, typewriterDelay / 2);
+        } else {
+          el.textContent = currentWord.substring(0, charIndex + 1);
+          charIndex++;
+          if (charIndex === currentWord.length) {
+            isDeleting = true;
+            setTimeout(typewriterTick, typewriterPause);
+            return;
+          }
+          setTimeout(typewriterTick, typewriterDelay);
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        typewriterTick();
+      });
+    </script>
+
+    <!-- Block 2: About Me only -->
+    <div
+      class="block-about"
+      id="about-section"
+      style="
+        max-width: 1300px;
+        margin: 36px auto 0 auto;
+        display: flex;
+        justify-content: center;
+      "
+    >
+      <div class="about-content" style="flex: 2 1 400px; min-width: 320px">
+        <h2 id="about" class="section-heading">About Me</h2>
+        <div class="section-underline"></div>
+        <h3 style="color: #0077cc">Education</h3>
+        <p>
+          <strong>Indian Institute of Information Technology, Sri City</strong>
+          <span style="float: right; font-style: italic; font-weight: normal"
+            >2021 - Present</span
+          ><br />
+          B.Tech in Computer Science and Engineering
+        </p>
+      </div>
+    </div>
+
+    <!-- Block 3: Projects grid -->
+    <div
+      class="block-projects"
+      id="projects-section"
+      style="margin: 48px auto 0 auto"
+    >
+      <h2 id="projects" class="section-heading">Projects</h2>
+      <div class="section-underline"></div>
+      <div class="projects-grid" id="projects-list"></div>
+      <div id="modal-overlay" style="display: none"></div>
     </div>
 
     <div class="footer">
       <p>&copy; 2025, Made with &#10084;&#65039; by Pranesh</p>
     </div>
+    <script>
+      function showSection(sectionId) {
+        // Hide all .content sections
+        document.querySelectorAll(".content").forEach(function (sec) {
+          sec.style.display = "none";
+        });
+        // Show the selected section
+        var el = document.getElementById(sectionId);
+        if (el) el.style.display = "block";
+      }
+
+      function showProjectModal(id) {
+        document.getElementById("modal-overlay").style.display = "block";
+        document.getElementById(id).style.display = "block";
+      }
+
+      function closeProjectModal(id) {
+        document.getElementById("modal-overlay").style.display = "none";
+        document.getElementById(id).style.display = "none";
+      }
+
+      document.getElementById("modal-overlay").onclick = function () {
+        document
+          .querySelectorAll(".project-details-modal")
+          .forEach(function (modal) {
+            modal.style.display = "none";
+          });
+        document.getElementById("modal-overlay").style.display = "none";
+      };
+
+      // Close project modal on ESC key
+      window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          document.getElementById("modal-overlay").style.display = "none";
+          document
+            .querySelectorAll(".project-details-modal")
+            .forEach(function (modal) {
+              modal.style.display = "none";
+            });
+        }
+      });
+
+      function projectCard({
+        id,
+        title,
+        desc,
+        details,
+        github,
+        youtube,
+        medium,
+      }) {
+        // details: array of strings (li)
+        return `
+          <div class="project-card">
+            <h3>${title}</h3>
+            <p class="project-desc">${desc}</p>
+            <div class="project-card-actions-row">
+              <button class="view-details-btn" onclick=\"showProjectModal('${id}')\">
+                View Details <i class='fas fa-arrow-right'></i>
+              </button>
+              <div class="project-links-btns">
+                <a href="${github}" target="_blank" class="icon-btn github" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="${youtube}" target="_blank" class="icon-btn youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="${medium}" target="_blank" class="icon-btn medium" title="Medium"><i class="fab fa-medium"></i></a>
+              </div>
+            </div>
+            <div class="project-details-modal" id="${id}" style="display: none;">
+              <button class="close-modal" onclick=\"closeProjectModal('${id}')\">&times;</button>
+              <h2>${title}</h2>
+              <div class="modal-underline"></div>
+              <div class="modal-desc">${desc}</div>
+              <ul>
+                ${details.map((item) => `<li>${item}</li>`).join("")}
+              </ul>
+              <div class="modal-links">
+                <a href="${github}" target="_blank" class="modal-link-btn github" title="GitHub Repository"><i class="fab fa-github"></i>View Repository</a>
+                <a href="${youtube}" target="_blank" class="modal-link-btn youtube" title="YouTube Demo"><i class="fab fa-youtube"></i>YouTube</a>
+                <a href="${medium}" target="_blank" class="modal-link-btn medium" title="Medium Article"><i class="fab fa-medium"></i>Medium</a>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Render all project cards dynamically
+      const projects = [
+        {
+          id: "proj1-details",
+          title: "Medical Image Segmentation",
+          desc: "Deep learning-based segmentation of retinal OCT images using Attention U-Net and contrastive learning.",
+          details: [
+            "Processed and converted 6000+ 3D .raw retinal OCT scans from the Re-Touch dataset into 2D .tif images.",
+            "Engineered an Attention U-Net with separable convolutional layers and a dual-loss function, achieving an 81.3 Dice coefficient.",
+            "Enhanced the Dice coefficient to 92.5 using Min-Max Contrastive Semi-Supervised Learning.",
+          ],
+          github: "https://github.com/Pranesh2288/BTP_PROJECT",
+          youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID1",
+          medium:
+            "https://medium.com/@pranesh2288/medical-image-segmentation-article",
+        },
+        {
+          id: "proj2-details",
+          title: "UNICEF Road Safety Data Analysis",
+          desc: "Statistical and ML analysis of UK road safety data to identify accident patterns and inform safety improvements.",
+          details: [
+            "Performed EDA on a 32-feature UK road safety dataset.",
+            "Applied Z-score based outlier detection and statistical hypothesis testing.",
+            "Engineered new features and conducted correlation analysis.",
+          ],
+          github: "https://github.com/Pranesh2288/Road-Safety-Analysis",
+          youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID2",
+          medium:
+            "https://medium.com/@pranesh2288/unicef-road-safety-data-analysis-article",
+        },
+        {
+          id: "proj3-details",
+          title: "Intruder Alert System",
+          desc: "Real-time face recognition access alert system with notifications and performance evaluation.",
+          details: [
+            "Developed a real-time face recognition access alert system using Python, OpenCV, and MongoDB.",
+            "Implemented alert notifications via Telegram, Discord, and email.",
+            "Recognizes users based on stored face embeddings and triggers an alert if detected in a restricted area.",
+            "Utilized pytest, mongo-mock, timeit, and selenium for testing and performance evaluation.",
+          ],
+          github:
+            "https://github.com/Pranesh2288/Unauthorized-Entry-Alert-System",
+          youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID3",
+          medium:
+            "https://medium.com/@pranesh2288/intruder-alert-system-article",
+        },
+        {
+          id: "proj4-details",
+          title: "Mushroom Classification using Decision Tree",
+          desc: "Decision tree model to classify mushrooms as edible or poisonous based on morphological features.",
+          details: [
+            "Developed a decision tree model using the C4.5 algorithm to classify mushrooms as edible or poisonous.",
+            "Performed data preprocessing, including correlation analysis and feature selection.",
+            "Utilized k-fold cross-validation and identified areas for improvement, such as data pruning and alternative algorithms like CART.",
+          ],
+          github: "https://github.com/Pranesh2288/Mushroom-Classification",
+          youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID4",
+          medium:
+            "https://medium.com/@pranesh2288/mushroom-classification-article",
+        },
+      ];
+      document.getElementById("projects-list").innerHTML = projects
+        .map(projectCard)
+        .join("");
+    </script>
   </body>
 </html>
