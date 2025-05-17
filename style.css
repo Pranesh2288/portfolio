@@ -473,3 +473,121 @@ a:hover {
   letter-spacing: 0.02em;
   box-shadow: 0 1px 4px rgba(25, 118, 210, 0.07);
 }
+
+/* About Me Block Styles */
+.about-grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto 60px auto;
+}
+.about-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(30, 34, 44, 0.1);
+  padding: 32px 32px 28px 32px;
+  min-width: 320px;
+  max-width: 420px;
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.about-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 12px;
+}
+.about-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+.about-card-title {
+  font-size: 1.35em;
+  font-weight: 700;
+  color: #222;
+}
+.about-card-content {
+  margin-top: 8px;
+  font-size: 1.08em;
+  color: #313131;
+}
+.about-edu-item {
+  border-left: 3px solid #b3e5fc;
+  padding-left: 14px;
+  margin-bottom: 18px;
+}
+.about-edu-title {
+  font-weight: 600;
+  color: #222;
+}
+.about-edu-desc {
+  font-size: 1em;
+  color: #555;
+}
+.about-edu-date {
+  font-size: 0.98em;
+  color: #888;
+  margin-top: 2px;
+}
+.about-skill-badge {
+  display: inline-block;
+  background: #e3f2fd;
+  color: #1976d2;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 16px;
+  padding: 5px 14px;
+  margin: 4px 6px 4px 0;
+  letter-spacing: 0.02em;
+}
+.about-interests-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.about-interests-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.08em;
+  margin-bottom: 10px;
+  color: #222;
+}
+.about-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #2196f3;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+.block-about {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  background-color: #f0f6fa;
+}
+.about-container {
+  width: 100%;
+}
+@media (max-width: 1100px) {
+  .about-grid {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+  .about-card {
+    max-width: 95vw;
+    min-width: 0;
+    width: 100%;
+  }
+}

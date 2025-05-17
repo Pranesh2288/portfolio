@@ -133,26 +133,78 @@
       </div>
     </div>
 
-    <!-- Block 2: About Me only -->
-    <div
-      class="block-about"
-      id="about-section"
-      style="display: flex; justify-content: center"
-    >
-      <div
-        class="about-content"
-        style="flex: 2 1 400px; max-width: 80vw; display: none"
-      >
-        <h2 id="about" class="section-heading">About Me</h2>
+    <!-- Block 2: About Me Section (Styled as in the reference image) -->
+    <div class="block-about" id="about-section">
+      <div class="about-container">
+        <h2 class="section-heading">About Me</h2>
         <div class="section-underline"></div>
-        <h3 style="color: #0077cc">Education</h3>
-        <p>
-          <strong>Indian Institute of Information Technology, Sri City</strong>
-          <span style="float: right; font-style: italic; font-weight: normal"
-            >2021 - Present</span
-          ><br />
-          B.Tech in Computer Science and Engineering
-        </p>
+        <div class="about-grid">
+          <!-- Education Card -->
+          <div class="about-card">
+            <div class="about-card-header">
+              <span class="about-card-icon" style="background: #e3f2fd"
+                ><i class="fas fa-graduation-cap" style="color: #1976d2"></i
+              ></span>
+              <span class="about-card-title">Education</span>
+            </div>
+            <div class="about-card-content">
+              <div class="about-edu-item">
+                <div class="about-edu-title">IIIT Sri City</div>
+                <div class="about-edu-desc">
+                  B.Tech in Computer Science &amp; Engineering
+                </div>
+                <div class="about-edu-date">Dec 2021 - Present</div>
+              </div>
+              <div class="about-edu-item">
+                <div class="about-edu-title">Senthil Public School</div>
+                <div class="about-edu-desc">Class 12</div>
+                <div class="about-edu-date">2019 - 2020</div>
+              </div>
+            </div>
+          </div>
+          <!-- Technical Skills Card -->
+          <div class="about-card">
+            <div class="about-card-header">
+              <span class="about-card-icon" style="background: #e3f2fd"
+                ><i class="fas fa-bolt" style="color: #1976d2"></i
+              ></span>
+              <span class="about-card-title">Technical Skills</span>
+            </div>
+            <div class="about-card-content">
+              <span class="about-skill-badge">Python</span>
+              <span class="about-skill-badge">TensorFlow</span>
+              <span class="about-skill-badge">Keras</span>
+              <span class="about-skill-badge">OpenCV</span>
+              <span class="about-skill-badge">NumPy</span>
+              <span class="about-skill-badge">Pandas</span>
+              <span class="about-skill-badge">Matplotlib</span>
+              <span class="about-skill-badge">Scikit-learn</span>
+              <span class="about-skill-badge">MongoDB</span>
+              <span class="about-skill-badge">Telegram API</span>
+              <span class="about-skill-badge">Discord API</span>
+            </div>
+          </div>
+          <!-- Research Interests Card -->
+          <div class="about-card">
+            <div class="about-card-header">
+              <span class="about-card-icon" style="background: #e3f2fd"
+                ><i class="fas fa-building" style="color: #1976d2"></i
+              ></span>
+              <span class="about-card-title">Experience</span>
+            </div>
+            <div class="about-card-content">
+              <ul class="about-interests-list">
+                <li>
+                  <span class="about-dot"></span>Domain Lead - Health and
+                  Fitness Club
+                </li>
+                <li>
+                  <span class="about-dot"></span>PR Team member - Gradient club
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
