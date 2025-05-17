@@ -99,20 +99,6 @@ window.addEventListener("keydown", function (e) {
   }
 });
 
-document.addEventListener("keydown", function (e) {
-  // If typing a visible character and not in an input/textarea, focus the search box
-  const isInput = document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA');
-  const searchInput = document.getElementById("projects-search");
-  if (
-    searchInput &&
-    !isInput &&
-    e.key.length === 1 &&
-    !e.ctrlKey && !e.metaKey && !e.altKey
-  ) {
-    searchInput.focus();
-  }
-});
-
 function projectCard({
   id,
   title,

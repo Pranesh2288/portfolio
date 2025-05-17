@@ -26,29 +26,26 @@
     </div>
 
     <!-- Block 1: Profile/Contact only -->
+    <!-- <div
+      class="block-profile-contact"
+      style="
+        background: radial-gradient(
+          ellipse 50% 60% at 55% 115%,
+          #3d7fc2 0%,
+          #64b5f6 20%,
+          #fff 100%
+        );
+      "
+    > -->
     <div class="block-profile-contact">
       <div class="profile-contact">
-        <!-- Column 1: Image, Name, Location -->
-        <div
-          style="
-            flex: 1 1 220px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 24px 32px 24px;
-            border-right: none;
-          "
-        >
-          <img
-            src="Untitled-1.jpeg"
-            alt="Profile"
-            style="width: 200px; border-radius: 50%; margin-bottom: 18px"
-          />
-          <p><strong style="font-size: 1.3em">Pranesh S</strong></p>
-          <p style="font-size: 1em; color: #666; margin-top: 2px">
-            Salem, Tamil Nadu
-          </p>
+        <!-- Column 1: ID Card Style -->
+        <div class="profile-idcard">
+          <div class="idcard-hole"></div>
+          <img src="Photo.jpeg" alt="Profile" />
+          <div class="idcard-name">Pranesh S</div>
+          <div class="idcard-place">Salem, Tamil Nadu</div>
+          <div class="idcard-company">&lt;Company&gt;</div>
         </div>
         <!-- Column 2: Large Text and Icons -->
         <div
@@ -70,7 +67,7 @@
               margin-bottom: 24px;
             "
           >
-            I am interested in <br /><span id="typewriter-text"></span>
+            I am working on <br /><span id="typewriter-text"></span>
           </div>
           <div
             class="contact-icons-row"
