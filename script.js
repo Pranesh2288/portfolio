@@ -11,7 +11,7 @@ function copyToClipboard(text, btnId) {
   });
 }
 
-const typewriterWords = ["Web Development", "Data Science"];
+const typewriterWords = ["Backend Development", "Java Spring Boot", "Node.js"];
 const googleColors = [
   "#EA4335", // red
   "#FBBC05", // yellow
@@ -153,70 +153,56 @@ function projectCard({
   `;
 }
 
-const projects = [
+const projects = 
+  [
   {
-    id: "proj1-details",
-    title: "Medical Image Segmentation",
-    summary: "Retinal OCT segmentation using deep learning.",
-    desc: "Deep learning-based segmentation of retinal OCT images using Attention U-Net and contrastive learning.",
+    id: "ride-booking-details",
+    title: "Ride Booking backend",
+    summary: "Scalable ride-booking service with geospatial matching and secure payments.",
+    desc: "A robust backend service managing the full ride lifecycle, from initial request to secure wallet-based payment processing.",
     details: [
-      "Processed and converted 6000+ 3D .raw retinal OCT scans from the Re-Touch dataset into 2D .tif images.",
-      "Engineered an Attention U-Net with separable convolutional layers and a dual-loss function, achieving an 81.3 Dice coefficient.",
-      "Enhanced the Dice coefficient to 92.5 using Min-Max Contrastive Semi-Supervised Learning.",
+      "Developed a robust and scalable backend for a ride-booking service managing the full ride lifecycle from request to secur wallet-based payment.",
+      "Integrated geospatial services using PostgreSQL/PostGIS and OSRM to handle high-precision coordinate data, enablin real-time location-based driver matching and accurate route distance estimations.",
+      "Implemented a stateless authentication and authorization framework using Spring Security and JWT, establishing Role Based Access Control to manage distinct permissions for different users.",
+      "Optimized database query performance by implementing geospatial indexing, which reduced search latency by 35%."
     ],
-    github: "https://github.com/Pranesh2288/BTP_PROJECT",
-    youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID1",
-    medium:
-      "https://medium.com/@pranesh2288/medical-image-segmentation-article",
-    tools: ["Python", "TensorFlow", "Keras", "OpenCV", "NumPy"],
+    github: "https://github.com/Pranesh2288",
+    youtube: "https://www.youtube.com/@pranesh2288",
+    medium: "https://medium.com/@pranesh2288",
+    tools: ["Java", "Spring Boot", "PostgreSQL", "PostGIS", "REST API", "Git", "JUnit", "Swagger"],
   },
   {
-    id: "proj2-details",
-    title: "UNICEF Road Safety Data Analysis",
-    summary: "UK road safety data analysis and ML insights.",
-    desc: "Statistical and ML analysis of UK road safety data to identify accident patterns and inform safety improvements.",
+    id: "url-shortener-details",
+    title: "URL Shortener backend",
+    summary: "RESTful API for shortening URLs using Base62 encoding.",
+    desc: "Engineered a modular system following Layered Architecture principles to transform database IDs into unique, human-readable keys.",
     details: [
-      "Performed EDA on a 32-feature UK road safety dataset.",
-      "Applied Z-score based outlier detection and statistical hypothesis testing.",
-      "Engineered new features and conducted correlation analysis.",
+      "Engineered a RESTful API using Spring Boot and Java 21 to shorten URLs, implementing Base62 encoding to transform internal database IDs into unique, human-readable keys.",
+      "Architected a modular system following Layered Architecture principles (Controller, Service, Repository) to ensure separation of concerns and maintainable, clean code.",
+      "Integrated PostgreSQL via Spring Data JPA, implementing custom features to export link data into CSV format.",
+      "Developed an automated test suite utilizing JUnit 5 and Mockito to verify complex business logic."
     ],
-    github: "https://github.com/Pranesh2288/Road-Safety-Analysis",
-    youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID2",
-    medium:
-      "https://medium.com/@pranesh2288/unicef-road-safety-data-analysis-article",
-    tools: ["Python", "Pandas", "Matplotlib", "Scikit-learn"],
+    github: "https://github.com/Pranesh2288",
+    youtube: "https://www.youtube.com/@pranesh2288",
+    medium: "https://medium.com/@pranesh2288",
+    tools: ["Java", "Spring Boot", "PostgreSQL", "Spring Data JPA", "JUnit 5", "Mockito", "Maven"],
   },
   {
-    id: "proj3-details",
-    title: "Intruder Alert System",
-    summary: "Real-time face recognition access alert system.",
-    desc: "Real-time face recognition access alert system with notifications and performance evaluation.",
+    id: "polaroid-details",
+    title: "Polaroid Movie Listing website",
+    summary: "Full-stack movie discovery platform with high-performance caching.",
+    desc: "A movie discovery and booking platform supporting over 10,000+ titles with complex multi-criteria filtering.",
     details: [
-      "Developed a real-time face recognition access alert system using Python, OpenCV, and MongoDB.",
-      "Implemented alert notifications via Telegram, Discord, and email.",
-      "Recognizes users based on stored face embeddings and triggers an alert if detected in a restricted area.",
-      "Utilized pytest, mongo-mock, timeit, and selenium for testing and performance evaluation.",
+      "Developed a full-stack movie discovery and booking platform using Node.js and MongoDB, enabling seamless search and booking for over 10,000+ titles with complex multi-criteria filtering",
+      "Reduced API latency by 45% through Redis caching and MongoDB indexing, enabling sub 200ms response time for queries.",
+      "Validated authentication endpoint reliability by implementing automated integration testing suite with Jest and Supertest",
+      "Streamlined deployment reliability across environments by using Docker containerization.",
     ],
-    github: "https://github.com/Pranesh2288/Unauthorized-Entry-Alert-System",
-    youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID3",
-    medium: "https://medium.com/@pranesh2288/intruder-alert-system-article",
-    tools: ["Python", "OpenCV", "MongoDB", "Telegram API", "Discord API"],
-  },
-  {
-    id: "proj4-details",
-    title: "Mushroom Classification using Decision Tree",
-    summary: "Classify mushrooms as edible or poisonous.",
-    desc: "Decision tree model to classify mushrooms as edible or poisonous based on morphological features.",
-    details: [
-      "Developed a decision tree model using the C4.5 algorithm to classify mushrooms as edible or poisonous.",
-      "Performed data preprocessing, including correlation analysis and feature selection.",
-      "Utilized k-fold cross-validation and identified areas for improvement, such as data pruning and alternative algorithms like CART.",
-    ],
-    github: "https://github.com/Pranesh2288/Mushroom-Classification",
-    youtube: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID4",
-    medium: "https://medium.com/@pranesh2288/mushroom-classification-article",
-    tools: ["Python", "Scikit-learn", "Pandas"],
-  },
+    github: "https://github.com/Pranesh2288",
+    youtube: "https://www.youtube.com/@pranesh2288",
+    medium: "https://medium.com/@pranesh2288",
+    tools: ["React", "Node.js", "MongoDB", "Docker", "Redis", "REST API", "Jest", "Supertest"],
+  }
 ];
 
 function renderProjects(filteredProjects) {
